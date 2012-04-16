@@ -39,8 +39,9 @@ class GoogleProvider extends Provider
         }
         $expiresAt = time() + $data->expires_in;
 
-        $people = 'https://www.googleapis.com/plus/v1/people/me'
-            .'?key='.$clientId
+        //$people = 'https://www.googleapis.com/plus/v1/people/me'
+        $people = 'https://www.googleapis.com/oauth2/v1/userinfo?alt=json'
+            .'&key='.$clientId
             .'&access_token='.$data->access_token;
         $me = json_decode($this->request($people));
 
